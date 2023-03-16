@@ -3,7 +3,7 @@ CREATE DATABASE if NOT EXISTS db_spesa;
 USE db_spesa;
 
 CREATE TABLE utente(
-id_utente INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(30) PRIMARY KEY,
 nome VARCHAR(30) NOT NULL,
 cognome VARCHAR(30) NOT NULL,
 email VARCHAR(50) NOT NULL,
@@ -16,9 +16,9 @@ descrizione VARCHAR(200));
 
 CREATE TABLE famiglia(
 id_gruppo INT,
-id_utente INT,
+username VARCHAR(30),
 FOREIGN KEY(id_gruppo) REFERENCES gruppo(id_gruppo),
-FOREIGN KEY(id_utente) REFERENCES utente(id_utente));
+FOREIGN KEY(username) REFERENCES utente(username));
 
 CREATE TABLE elenco(
 id_elenco INT AUTO_INCREMENT PRIMARY KEY,
