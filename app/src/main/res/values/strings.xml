@@ -21,4 +21,8 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="top_screen_image">top_screen_image</string>
+    <string name="accedi">Accedi</string>
+    <string name="utente">Utente</string>
+    <string name="password">Password</string>
+    <string name="logo">Logo</string>
 </resources>
