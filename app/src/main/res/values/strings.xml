@@ -27,4 +27,6 @@
     <string name="logo">Logo</string>
     <string name="conferma_email">conferma email</string>
     <string name="email">email</string>
+    <string name="hai_gi_un_account">Hai già un account?</string>
+    <string name="non_hai_un_account">Non hai un account?</string>
 </resources>

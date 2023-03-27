@@ -2,6 +2,7 @@ package com.main.listify;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -27,5 +28,10 @@ public class Login extends AppCompatActivity {
         }else {
             Toast.makeText(getApplicationContext(), "Inserisci username/password!", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void open_activity_registrazione(View view) {
+        Intent activity = new Intent(this, Registrazione.class);
+        startActivity(activity);
     }
 }
