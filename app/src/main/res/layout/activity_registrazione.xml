@@ -99,13 +99,13 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="127dp"
-        android:layout_height="108dp"
+        android:layout_width="261dp"
+        android:layout_height="102dp"
         android:contentDescription="@string/logo"
         app:layout_constraintBottom_toTopOf="@+id/etxt_username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/screenshot20230324183706" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
