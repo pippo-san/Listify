@@ -25,6 +25,9 @@ public class Login extends AppCompatActivity {
         password = getMd5(( (EditText) findViewById(R.id.etxt_password) ).getText().toString());
         if ( !(username.equals("") && password.equals("")) ){
             // TODO
+            Intent activity = new Intent(this, Home.class);
+            activity.putExtra("username", username);
+            startActivity(activity);
         }else {
             Toast.makeText(getApplicationContext(), "Inserisci username/password!", Toast.LENGTH_SHORT).show();
         }

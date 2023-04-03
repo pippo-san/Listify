@@ -3,6 +3,8 @@ package com.main.listify;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -20,6 +22,9 @@ public class Home extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomeBinding binding;
+
+    private TextView txt_username;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,12 +52,19 @@ public class Home extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        // Scritto
+        Bundle passaggioDati = getIntent().getExtras();
+        txt_username = ((TextView) findViewById(R.id.txt_nome_utente));
+        username = (String) passaggioDati.get("username");
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
+        txt_username.setText(username);
+
         return true;
     }
 
