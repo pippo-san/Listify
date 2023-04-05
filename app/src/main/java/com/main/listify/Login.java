@@ -10,9 +10,14 @@ import android.widget.Toast;
 
 import static com.main.listify.Utils.getMd5;
 
+import java.sql.Connection;
+import java.sql.Statement;
+
 public class Login extends AppCompatActivity {
 
     String username, password;
+    Connection connect;
+    String connection_result="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
