@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -29,7 +28,7 @@ public class Registrazione extends AppCompatActivity {
             confermaPassword = getMd5(((EditText) findViewById(R.id.etxt_conferma_password)).getText().toString());
             if (!(email.equals("") && confermaEmail.equals("") && username.equals("") && password.equals("") && confermaPassword.equals(""))) {
                 if (email.equalsIgnoreCase(confermaEmail) && password.equals(confermaPassword)){
-                    // TODO
+                    Connection_helper.esegui_query("INSERT INTO UTENTE VALUES('"+username+"', 'Bics', 'Bics2', '"+email+"', '"+password+"')");
                 }else {
                     Toast.makeText(getApplicationContext(), "Errore, ricontrolla i dati!!", Toast.LENGTH_SHORT).show();
                 }

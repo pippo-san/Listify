@@ -5,11 +5,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class connection_helper {
-    Connection con;
-    String username, pass, ip, port, database;
+public class Connection_helper {
 
-    public Connection connection_class(String query){
+    public static void esegui_query(String query){
+        Connection con = null;
+        String username, pass, ip, port, database;
+
         ip="meteo.itisarezzo.cloud";
         database="va2666q7_meteo";
         username="va2666q7_1";
@@ -24,9 +25,12 @@ public class connection_helper {
             connection= DriverManager.getConnection(ConnectionURL);
             Statement stmt=con.createStatement();
             ResultSet rs=stmt.executeQuery(query);
+
+            while(rs.next())
+                //System.out.println(rs.getString(0));
+            con.close();
         }catch (Exception e){
             System.out.println(e);
         }
-        return connection;
     }
 }
