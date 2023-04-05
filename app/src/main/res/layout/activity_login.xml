@@ -68,7 +68,7 @@
         android:layout_height="65dp"
         android:ems="10"
         android:onClick="open_activity_registrazione"
-        android:text="@string/non_hai_un_account"
+        android:text="Non hai un account?                 Registrati"
         android:textAlignment="center"
         android:textColor="#1976D2"
         app:layout_constraintBottom_toBottomOf="parent"

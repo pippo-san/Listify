@@ -115,7 +115,7 @@
         android:layout_height="65dp"
         android:ems="10"
         android:onClick="open_activity_login"
-        android:text="@string/non_hai_un_account"
+        android:text="Hai già un account?                 Accedi"
         android:textAlignment="center"
         android:textColor="#1976D2"
         app:layout_constraintBottom_toBottomOf="parent"
