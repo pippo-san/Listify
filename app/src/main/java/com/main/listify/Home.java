@@ -25,6 +25,7 @@ public class Home extends AppCompatActivity {
 
     private TextView txt_username;
     private String username;
+    private Bundle passaggioDati;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,17 +55,19 @@ public class Home extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         // Scritto
-        Bundle passaggioDati = getIntent().getExtras();
-        txt_username = ((TextView) findViewById(R.id.txt_nome_utente));
-        username = (String) passaggioDati.get("username");
+        passaggioDati = getIntent().getExtras();
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
-        txt_username.setText(username);
 
+        txt_username = ((TextView) findViewById(R.id.txt_nome_utente));
+        username = (String) passaggioDati.get("username");
+
+        txt_username.setText(username);
         return true;
     }
 
