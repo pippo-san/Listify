@@ -1,9 +1,12 @@
 package com.main.listify;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.math.BigInteger;
+import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.Connection;
 
 public class Utils {
     public static String getMd5(String input)
@@ -32,6 +35,21 @@ public class Utils {
         catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static String leggiPaginaHTML(URL pagina) throws IOException {
+        BufferedReader in = new BufferedReader(
+                new InputStreamReader(pagina.openStream()));
+
+
+        String inputLine;
+        StringBuilder finale = new StringBuilder();
+        while ((inputLine = in.readLine()) != null)
+            finale.append(inputLine);
+        in.close();
+
+        return finale.toString();
+
     }
 }
 

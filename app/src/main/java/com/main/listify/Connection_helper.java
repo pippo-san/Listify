@@ -1,36 +1,16 @@
 package com.main.listify;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.io.IOException;
+import java.net.*;
+import static com.main.listify.Utils.leggiPaginaHTML;
 
 public class Connection_helper {
 
-    public static void esegui_query(String query){
-        Connection con = null;
-        String username, pass, ip, port, database;
+    public static boolean registraUtente(String username, String nome, String cognome, String email, String pass) throws IOException {
+        String querystring = "?username="+username+"&nome="+nome+"&cognome="+cognome+"&email="+email+"&password="+pass;
+        URL paginaRegistrazione = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/register.php"+querystring);
 
-        ip="meteo.itisarezzo.cloud";
-        database="va2666q7_meteo";
-        username="va2666q7_1";
-        pass="meteo2022";
-        port="8443";
-
-        Connection connection=null;
-        String ConnectionURL=null;
-        try{
-            Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            ConnectionURL= "jdbc:jtds:sqlserver://"+ ip + ":"+ port+";"+ "databasename="+ database+";user="+username+";password="+pass+";";
-            connection= DriverManager.getConnection(ConnectionURL);
-            Statement stmt=con.createStatement();
-            ResultSet rs=stmt.executeQuery(query);
-
-            while(rs.next())
-                //System.out.println(rs.getString(0));
-            con.close();
-        }catch (Exception e){
-            System.out.println(e);
-        }
+        String result = leggiPaginaHTML(paginaRegistrazione);
+        return result.equals("ok");
     }
 }

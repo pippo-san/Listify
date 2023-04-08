@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+
 public class Registrazione extends AppCompatActivity {
 
     String email, confermaEmail, username, password, confermaPassword;
@@ -20,7 +23,7 @@ public class Registrazione extends AppCompatActivity {
         setContentView(R.layout.activity_registrazione);
     }
 
-        public void doRegistrazione(View view) {
+        public void doRegistrazione(View view) throws IOException {
             email = ((EditText) findViewById(R.id.etxt_email)).getText().toString();
             confermaEmail = ((EditText) findViewById(R.id.etxt_conferma_email)).getText().toString();
             username = ((EditText) findViewById(R.id.etxt_username)).getText().toString();
@@ -28,7 +31,12 @@ public class Registrazione extends AppCompatActivity {
             confermaPassword = getMd5(((EditText) findViewById(R.id.etxt_conferma_password)).getText().toString());
             if (!(email.equals("") && confermaEmail.equals("") && username.equals("") && password.equals("") && confermaPassword.equals(""))) {
                 if (email.equalsIgnoreCase(confermaEmail) && password.equals(confermaPassword)){
-                    Connection_helper.esegui_query("INSERT INTO UTENTE VALUES('"+username+"', 'Bics', 'Bics2', '"+email+"', '"+password+"')");
+                    if (!Connection_helper.registraUtente(username, "mattia", "bichi", email, password)){
+                        Toast.makeText(getApplicationContext(), "Errore interno, riprovare più tardi", Toast.LENGTH_SHORT).show();
+                    }else {
+                        Intent activity = new Intent(this, Login.class);
+                        startActivity(activity);
+                    }
                 }else {
                     Toast.makeText(getApplicationContext(), "Errore, ricontrolla i dati!!", Toast.LENGTH_SHORT).show();
                 }
