@@ -34,7 +34,7 @@ public class Registrazione extends AppCompatActivity {
                     if (!Connection_helper.registraUtente(username, "mattia", "bichi", email, password)){
                         Toast.makeText(getApplicationContext(), "Errore interno, riprovare più tardi", Toast.LENGTH_SHORT).show();
                     }else {
-                        Intent activity = new Intent(this, Login.class);
+                        Intent activity = new Intent(this, Home.class);
                         startActivity(activity);
                     }
                 }else {

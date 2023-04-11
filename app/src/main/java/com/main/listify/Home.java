@@ -1,9 +1,11 @@
 package com.main.listify;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
-import android.widget.EditText;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -18,6 +20,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.main.listify.databinding.ActivityHomeBinding;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 public class Home extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -26,6 +38,7 @@ public class Home extends AppCompatActivity {
     private TextView txt_username;
     private String username;
     private Bundle passaggioDati;
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +46,12 @@ public class Home extends AppCompatActivity {
 
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         setSupportActionBar(binding.appBarHome.toolbar);
+        try {
+            Connection_helper.schermataHome(username.toString());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -16,4 +16,4 @@ if(isset($_POST['username']) && isset($_POST['nome']) && isset($_POST['cognome']
  }else{
     echo "bad request";
  }
-
+?>

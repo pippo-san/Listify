@@ -45,3 +45,4 @@ function closedb(): void
     global $conn;
     $conn = null;
 }
+?>
