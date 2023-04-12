@@ -39,7 +39,7 @@ public class Utils {
 
     public static String leggiPaginaHTML(URL pagina) throws IOException {
         BufferedReader in = new BufferedReader(
-                new InputStreamReader(pagina.openStream()));
+        new InputStreamReader(pagina.openStream()));
 
 
         String inputLine;
