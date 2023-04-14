@@ -47,11 +47,7 @@ public class Home extends AppCompatActivity {
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarHome.toolbar);
-        try {
-            Connection_helper.schermataHome(username.toString());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
         binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,6 +69,15 @@ public class Home extends AppCompatActivity {
 
         // Scritto
         passaggioDati = getIntent().getExtras();
+
+        txt_username = ((TextView) findViewById(R.id.txt_nome_utente));
+        username = (String) passaggioDati.get("username");
+
+        try {
+            Connection_helper.schermataHome(username.toString());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

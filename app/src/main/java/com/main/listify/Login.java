@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -33,14 +34,23 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_login);
+
+        /*  DA FARE UN REFACTORING DI QUESTO, PRIMA O POI  */
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        /*  https://stackoverflow.com/questions/6343166/how-can-i-fix-android-os-networkonmainthreadexception  */
+
     }
 
     public void doLogin(View view) throws IOException {
         username = ((EditText) findViewById(R.id.etxt_username)).getText().toString();
         password = getMd5(( (EditText) findViewById(R.id.etxt_password) ).getText().toString());
         if ( !(username.equals("") && password.equals("")) ){
-            if(!Connection_helper.accessoUtente(username.toString(), password.toString())){
+            if(Connection_helper.accessoUtente(username.toString(), password.toString())){
                 Intent activity = new Intent(this, Home.class);
                 activity.putExtra("username", username);
                 startActivity(activity);

@@ -31,11 +31,12 @@ public class Registrazione extends AppCompatActivity {
             confermaPassword = getMd5(((EditText) findViewById(R.id.etxt_conferma_password)).getText().toString());
             if (!(email.equals("") && confermaEmail.equals("") && username.equals("") && password.equals("") && confermaPassword.equals(""))) {
                 if (email.equalsIgnoreCase(confermaEmail) && password.equals(confermaPassword)){
-                    if (!Connection_helper.registraUtente(username, "mattia", "bichi", email, password)){
-                        Toast.makeText(getApplicationContext(), "Errore interno, riprovare più tardi", Toast.LENGTH_SHORT).show();
-                    }else {
+                    if (Connection_helper.registraUtente(username, "mattia", "bichi", email, password)){
                         Intent activity = new Intent(this, Home.class);
                         startActivity(activity);
+
+                    }else {
+                        Toast.makeText(getApplicationContext(), "Errore interno, riprovare più tardi", Toast.LENGTH_SHORT).show();
                     }
                 }else {
                     Toast.makeText(getApplicationContext(), "Errore, ricontrolla i dati!!", Toast.LENGTH_SHORT).show();
