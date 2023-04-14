@@ -3,8 +3,8 @@ include "connessione.php";
 
 opendb();
 
-if(isset($_POST['username']) && isset($_POST['password'])
- &&  $_POST['username']!="" && $_POST['password']!=""){
+if(isset($_GET['username']) && isset($_GET['password'])
+ &&  $_GET['username']!="" && $_GET['password']!=""){
     $username = $_GET["username"];
     $password = $_GET["password"];
 
@@ -13,7 +13,7 @@ if(isset($_POST['username']) && isset($_POST['password'])
     $res = query($query);
     if($res != "-1")
         echo "ok";
-    else echo "bad request";
+    else echo "utente non trovato";
  }else{
     echo "bad request";
  }
