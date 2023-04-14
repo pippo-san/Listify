@@ -30,7 +30,7 @@ public class Registrazione extends AppCompatActivity {
             password = getMd5(((EditText) findViewById(R.id.etxt_password)).getText().toString());
             confermaPassword = getMd5(((EditText) findViewById(R.id.etxt_conferma_password)).getText().toString());
             if (!(email.equals("") && confermaEmail.equals("") && username.equals("") && password.equals("") && confermaPassword.equals(""))) {
-                if (email.equalsIgnoreCase(confermaEmail) && password.equals(confermaPassword)){
+                if (email.equals(confermaEmail) && password.equals(confermaPassword)){
                     if (!Connection_helper.registraUtente(username, "mattia", "bichi", email, password)){
                         Toast.makeText(getApplicationContext(), "Errore interno, riprovare più tardi", Toast.LENGTH_SHORT).show();
                     }else {
