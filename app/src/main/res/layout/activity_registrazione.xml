@@ -88,6 +88,7 @@
         android:id="@+id/button"
         android:layout_width="164dp"
         android:layout_height="58dp"
+        android:backgroundTint="#006633"
         android:onClick="doRegistrazione"
         android:text="@string/Registrati"
         android:textSize="20sp"

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -49,12 +50,13 @@ public class Home extends AppCompatActivity {
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         setSupportActionBar(binding.appBarHome.toolbar);
+        Button fab=findViewById(R.id.fab);
 
-        binding.appBarHome.fab.setOnClickListener(new View.OnClickListener() {
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent apri_crea = new Intent(Home.this,MainActivity.class);
+                startActivity(apri_crea);
             }
         });
         DrawerLayout drawer = binding.drawerLayout;

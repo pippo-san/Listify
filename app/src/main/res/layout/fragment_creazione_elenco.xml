@@ -55,6 +55,7 @@
         android:id="@+id/button_lista"
         android:layout_width="164dp"
         android:layout_height="58dp"
+        android:backgroundTint="#006633"
         android:onClick="doLogin"
         android:text="crea elenco"
         android:textSize="16sp"
