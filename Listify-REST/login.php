@@ -3,15 +3,19 @@ include "connessione.php";
 
 opendb();
 
-if(isset($_GET['username']) && isset($_GET['password'])
- &&  $_GET['username']!="" && $_GET['password']!=""){
+if(isset($_GET['username']) && isset($_GET['pass'])
+ &&  $_GET['username']!="" && $_GET['pass']!=""){
     $username = $_GET["username"];
-    $password = $_GET["password"];
+    $password = $_GET["pass"];
 
-    $query = "SELECT username, pass FROM utente WHERE username='$username' AND pass='$password'";
+    // echo $username." ".$password;
 
-    $res = query($query);
-    if($res != "-1")
+    $query = "SELECT username FROM utente WHERE username='$username' AND pass='$password'";
+
+    // echo $query;
+    $res = conta($query);
+    // echo $res;
+    if($res == "1")
         echo "ok";
     else echo "utente non trovato";
  }else{

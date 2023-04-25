@@ -2,35 +2,34 @@
 
 global $conn;
 global $stmt;
-
-function opendb(){
-    global $conn;
-    $hostname = "localhost";
-    $dbname = "va2666q7_meteo";
-    $user = "va2666q7_1";
-    $pass = "meteo2022";
-    $conn = new mysqli("localhost","va2666q7_1","meteo2022","va2666q7_meteo");
-
-    if ($conn->connect_error) {
-        die('Connessione fallita ' . $conn->connect_error);
-    }
+function opendb(): void
+{
+   global $conn;
+   $dbhost="localhost";
+   $dbname = "va2666q7_meteo";
+   $dbuser = "va2666q7_1";
+   $dbpass = "meteo2022";
+	try {
+	 $conn = new PDO ("mysql:host=$dbhost;dbname=$dbname", $dbuser, $dbpass);
+   } catch (PDOException $e) {
+    echo "Errore: ".$e->getMessage();
+    die();
+}
 }
 
 function query($query){
-    global $conn;
-    global $stmt;
-    try
-    {
-        // $sql = $query;
-        // $stmt = $conn->prepare($sql);
-        // $stmt->execute();
-
-        $stmt = $conn->query($query);
-    }
-    catch (Exception $ex) {
-        $stmt = "-1";
-    }
-    return $stmt;
+	global $conn;
+	global $stmt;
+	try
+	{
+  	$sql = $query;
+  	$stmt = $conn->prepare($sql);
+		$stmt->execute();
+	}
+	catch (Exception $ex) {
+		$stmt = "-1";
+	}
+	return $stmt;
 }
 
 function conta($query){
@@ -45,7 +44,7 @@ function conta($query){
     catch (Exception $ex) {
         $stmt = "-1";
     }
-    return oci_num_rows();
+    return $stmt->rowCount();
 }
 
 function closedb(): void
