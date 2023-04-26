@@ -8,7 +8,7 @@
 
     <EditText
         android:id="@+id/etxt_username"
-        android:layout_width="172dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:autofillHints="username"
         android:hint="@string/utente"
@@ -23,7 +23,7 @@
 
     <EditText
         android:id="@+id/etxt_password"
-        android:layout_width="172dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:autofillHints="password"
         android:hint="@string/password"
@@ -68,7 +68,7 @@
         android:layout_height="65dp"
         android:ems="10"
         android:onClick="open_activity_registrazione"
-        android:text="Non hai un account?                 Registrati"
+        android:text="Non hai un account? \n Registrati"
         android:textSize="20sp"
         android:textAlignment="center"
         android:textColor="#1976D2"

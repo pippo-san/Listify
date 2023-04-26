@@ -15,7 +15,7 @@ import java.net.MalformedURLException;
 
 public class Registrazione extends AppCompatActivity {
 
-    String email, confermaEmail, username, password, confermaPassword;
+    String nome, cognome, email, confermaEmail, username, password, confermaPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,14 +24,16 @@ public class Registrazione extends AppCompatActivity {
     }
 
         public void doRegistrazione(View view) throws IOException {
+            nome = ((EditText) findViewById(R.id.etxt_nome)).getText().toString();
+            cognome = ((EditText) findViewById(R.id.etxt_cognome)).getText().toString();
             email = ((EditText) findViewById(R.id.etxt_email)).getText().toString();
             confermaEmail = ((EditText) findViewById(R.id.etxt_conferma_email)).getText().toString();
             username = ((EditText) findViewById(R.id.etxt_username)).getText().toString();
             password = getMd5(((EditText) findViewById(R.id.etxt_password)).getText().toString());
             confermaPassword = getMd5(((EditText) findViewById(R.id.etxt_conferma_password)).getText().toString());
-            if (!(email.equals("") && confermaEmail.equals("") && username.equals("") && password.equals("") && confermaPassword.equals(""))) {
+            if (!(nome.equals("") && cognome.equals("") && email.equals("") && confermaEmail.equals("") && username.equals("") && password.equals("") && confermaPassword.equals(""))) {
                 if (email.equalsIgnoreCase(confermaEmail) && password.equals(confermaPassword)){
-                    if (Connection_helper.registraUtente(username, "mattia", "bichi", email, password)){
+                    if (Connection_helper.registraUtente(username, nome, cognome, email, password)){
                         Intent activity = new Intent(this, Home.class);
                         startActivity(activity);
 
