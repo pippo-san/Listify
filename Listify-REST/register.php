@@ -11,12 +11,16 @@ if(isset($_GET['username']) && isset($_GET['nome']) && isset($_GET['cognome']) &
     $email = $_GET["email"];
     $password = $_GET["pass"];
 
-    $query = "INSERT INTO utente VALUES ('$username', '$nome', '$cognome', '$email', '$password')";
+    $query = "SELECT username FROM utente WHERE username='$username'";
 
-    $res = query($query);
-    if($res != "-1")
-        echo "ok";
-    else echo "bad request";
+    $res = conta($query);
+        if($res != "1"){
+            $query = "INSERT INTO utente VALUES ('$username', '$nome', '$cognome', '$email', '$password')";
+            $res = query($query);
+            echo "ok";
+        }
+        else echo "errore";
+
  }else{
     echo "bad request";
  }

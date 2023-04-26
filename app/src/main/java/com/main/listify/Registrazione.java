@@ -38,7 +38,7 @@ public class Registrazione extends AppCompatActivity {
                         startActivity(activity);
 
                     }else {
-                        Toast.makeText(getApplicationContext(), "Errore interno, riprovare più tardi", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Username già esistente, scegline un altro!", Toast.LENGTH_SHORT).show();
                     }
                 }else {
                     Toast.makeText(getApplicationContext(), "Errore, ricontrolla i dati!!", Toast.LENGTH_SHORT).show();
