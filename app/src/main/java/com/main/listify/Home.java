@@ -1,6 +1,8 @@
 package com.main.listify;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
@@ -74,5 +76,10 @@ public class Home extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void apriImpostazioni(MenuItem item) {
+        Intent activity = new Intent(this, SettingsActivity.class);
+        startActivity(activity);
     }
 }
