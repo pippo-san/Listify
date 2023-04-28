@@ -78,11 +78,13 @@ public class Home extends AppCompatActivity {
         txt_username = ((TextView) findViewById(R.id.txt_nome_utente));
         username = (String) passaggioDati.get("username");
 
-        try {
-            Connection_helper.schermataHome(username.toString());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        // try {
+        //     Connection_helper.schermataHome(username.toString());
+        // } catch (IOException e) {
+        //     throw new RuntimeException(e);
+        // }
+
+        txt_username.setText(username);
 
     }
 

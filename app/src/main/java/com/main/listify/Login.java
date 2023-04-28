@@ -51,9 +51,10 @@ public class Login extends AppCompatActivity {
         password = getMd5(( (EditText) findViewById(R.id.etxt_password) ).getText().toString());
         if ( !(username.equals("") && password.equals("")) ){
             if(Connection_helper.accessoUtente(username.toString(), password.toString())){
-                Intent activity = new Intent(this, Home.class);
-                activity.putExtra("username", username);
-                startActivity(activity);
+                open_activity_home(view, username);
+                // Intent activity = new Intent(this, Home.class);
+                // activity.putExtra("username", username);
+                // startActivity(activity);
             }else{
                 Toast.makeText(getApplicationContext(), "username/password errati!", Toast.LENGTH_SHORT).show();
             }
@@ -67,8 +68,9 @@ public class Login extends AppCompatActivity {
         startActivity(activity);
     }
 
-    public void open_activity_home(View view) {
+    public void open_activity_home(View view, String username) {
         Intent activity = new Intent(this, Home.class);
+        activity.putExtra("username", username);
         startActivity(activity);
     }
     public void open_activity_login(View view) {
