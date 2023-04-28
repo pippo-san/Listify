@@ -52,9 +52,6 @@ public class Login extends AppCompatActivity {
         if ( !(username.equals("") && password.equals("")) ){
             if(Connection_helper.accessoUtente(username.toString(), password.toString())){
                 open_activity_home(view, username);
-                // Intent activity = new Intent(this, Home.class);
-                // activity.putExtra("username", username);
-                // startActivity(activity);
             }else{
                 Toast.makeText(getApplicationContext(), "username/password errati!", Toast.LENGTH_SHORT).show();
             }
