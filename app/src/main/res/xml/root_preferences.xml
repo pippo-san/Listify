@@ -1,34 +1,68 @@
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory app:title="@string/messages_header">
-
-        <EditTextPreference
-            app:key="signature"
-            app:title="@string/signature_title"
-            app:useSimpleSummaryProvider="true" />
-
-        <ListPreference
-            app:defaultValue="reply"
-            app:entries="@array/reply_entries"
-            app:entryValues="@array/reply_values"
-            app:key="reply"
-            app:title="@string/reply_title"
-            app:useSimpleSummaryProvider="true" />
-
+    <PreferenceCategory app:title="Privacy">
+        <SwitchPreferenceCompat
+            app:key="stato_online"
+            app:title="Mostra stato online"
+            android:defaultValue="true"/>
     </PreferenceCategory>
 
-    <PreferenceCategory app:title="@string/sync_header">
+    <PreferenceCategory app:title="Notifiche">
 
         <SwitchPreferenceCompat
-            app:key="sync"
-            app:title="@string/sync_title" />
+            app:key="consenso_notifiche"
+            app:title="Abilita notifiche"
+            android:defaultValue="true"/>
 
-        <SwitchPreferenceCompat
-            app:dependency="sync"
-            app:key="attachment"
-            app:summaryOff="@string/attachment_summary_off"
-            app:summaryOn="@string/attachment_summary_on"
-            app:title="@string/attachment_title" />
+        <PreferenceCategory
+            app:dependency="consenso_notifiche"
+            app:key="preferenze_notifiche"
+            app:title="Preferenze notifiche">
+            <CheckBoxPreference
+                android:key="scadenza_timer"
+                android:defaultValue="true"
+                android:summary="Scadenza timer"
+                android:title="Scadenza timer"
+                />
+            <CheckBoxPreference
+                android:key="aggiunta_lista"
+                android:defaultValue="true"
+                android:summary="Aggiunta lista"
+                android:title="Aggiunta lista"
+                />
+            <CheckBoxPreference
+                android:key="modifica_lista"
+                android:defaultValue="false"
+                android:summary="Modifica lista"
+                android:title="Modifica lista"
+                />
+            <CheckBoxPreference
+                android:key="Scadenza_timer"
+                android:defaultValue="true"
+                android:summary="Scadenza timer"
+                android:title="Scadenza timer"
+                />
+            <CheckBoxPreference
+                android:key="aggiunta_partecipanti"
+                android:defaultValue="false"
+                android:summary="Aggiunta partecipanti a gruppo"
+                android:title="Aggiunta partecipanti a gruppo"
+                />
+            <CheckBoxPreference
+                android:key="rimozione_partecipanti"
+                android:defaultValue="false"
+                android:summary="Rimozione partecipanti da gruppo"
+                android:title="Rimozione partecipanti da gruppo"
+                />
+            <CheckBoxPreference
+                android:key="annunci_gruppo"
+                android:defaultValue="true"
+                android:summary="Annunci gruppo"
+                android:title="Annunci gruppo"
+                />
+        </PreferenceCategory>
+
 
     </PreferenceCategory>
 

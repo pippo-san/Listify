@@ -57,8 +57,14 @@ public class Home extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
 
         // Scritto
-        Bundle passaggioDati = getIntent().getExtras();
-        username = passaggioDati.get("username").toString();
+        try {
+            Bundle passaggioDati = getIntent().getExtras();
+            username = passaggioDati.get("username").toString();
+        } catch (NullPointerException e) {
+            // Se per caso non ho l'username, rimando alla pagina di login
+            Intent activity = new Intent(this, Login.class);
+            startActivity(activity);
+        }
 
     }
 
