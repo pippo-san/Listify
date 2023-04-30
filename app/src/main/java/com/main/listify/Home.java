@@ -86,6 +86,7 @@ public class Home extends AppCompatActivity {
 
     public void apriImpostazioni(MenuItem item) {
         Intent activity = new Intent(this, SettingsActivity.class);
+        activity.putExtra("username", username);
         startActivity(activity);
     }
 }
