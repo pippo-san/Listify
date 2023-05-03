@@ -56,8 +56,8 @@ public class Connection_helper {
         //BufferedReader in = new BufferedReader(new InputStreamReader(pagina.getInputStream()));
         Scanner in = new Scanner(pagina.openStream());
 
-        String letto = "";
-        letto = in.next();
+        String letto;
+        letto = in.nextLine();
         in.close();
 
         return letto;
