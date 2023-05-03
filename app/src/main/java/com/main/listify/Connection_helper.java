@@ -52,6 +52,18 @@ public class Connection_helper {
         return result.equals("ok");
     }
 
+    public static String prediRisultati(String query) throws IOException {
+        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/query.php"+query);
+
+        System.out.println("URL: "+url);
+
+        HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
+
+        String result = leggiPaginaHTML(url);
+        System.out.println(result);
+        return "";
+    }
+
     public static String leggiPaginaHTML(URL pagina) throws IOException {
         //BufferedReader in = new BufferedReader(new InputStreamReader(pagina.getInputStream()));
         Scanner in = new Scanner(pagina.openStream());
