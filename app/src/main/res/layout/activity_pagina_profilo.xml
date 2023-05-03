@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pagina_profilo">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="144dp"
+        android:layout_height="138dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:mipmap/sym_def_app_icon" />
+
+    <TextView
+        android:id="@+id/textView_nome"
+        android:layout_width="69dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="24dp"
+        android:text="nome"
+        app:layout_constraintTop_toBottomOf="@+id/textView_username"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="24dp" />
+
+    <TextView
+        android:id="@+id/textView_email"
+        android:layout_width="69dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="24dp"
+        android:text="email"
+        app:layout_constraintTop_toBottomOf="@+id/textView_cognome"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="24dp" />
+
+    <TextView
+        android:id="@+id/textView_username"
+        android:layout_width="69dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="84dp"
+        android:text="username"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="24dp" />
+
+    <TextView
+        android:id="@+id/textView_cognome"
+        android:layout_width="69dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="24dp"
+        android:text="cognome"
+        app:layout_constraintTop_toBottomOf="@+id/textView_nome"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="24dp" />
+
+    <TextView
+        android:id="@+id/textView_query_username"
+        android:layout_width="250dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="84dp"
+        android:text="query_username"
+        app:layout_constraintStart_toEndOf="@+id/textView_username"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView_query_nome"
+        android:layout_width="250dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="query_nome"
+        app:layout_constraintStart_toEndOf="@+id/textView_nome"
+        app:layout_constraintTop_toBottomOf="@+id/textView_query_username"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView_query_cognome"
+        android:layout_width="250dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="query_cognome"
+        app:layout_constraintStart_toEndOf="@+id/textView_cognome"
+        app:layout_constraintTop_toBottomOf="@+id/textView_query_nome"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView_query_email"
+        android:layout_width="250dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="query_email"
+        app:layout_constraintStart_toEndOf="@+id/textView_email"
+        app:layout_constraintTop_toBottomOf="@+id/textView_query_cognome"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

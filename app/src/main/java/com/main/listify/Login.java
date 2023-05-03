@@ -70,6 +70,14 @@ public class Login extends AppCompatActivity {
         activity.putExtra("username", username);
         startActivity(activity);
     }
+
+    public void open_activity_profile(View view, String username) {
+        Intent activity = new Intent(this, pagina_profilo.class);
+        activity.putExtra("username", username);
+        startActivity(activity);
+    }
+
+
     public void open_activity_login(View view) {
         Intent activity = new Intent(this, Login.class);
         startActivity(activity);

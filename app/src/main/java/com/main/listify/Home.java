@@ -89,4 +89,10 @@ public class Home extends AppCompatActivity {
         activity.putExtra("username", username);
         startActivity(activity);
     }
+
+    public void apriProfilo(MenuItem item) {
+        Intent activity = new Intent(this, pagina_profilo.class);
+        activity.putExtra("username", username);
+        startActivity(activity);
+    }
 }
