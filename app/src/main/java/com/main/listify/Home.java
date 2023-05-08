@@ -102,5 +102,6 @@ public class Home extends AppCompatActivity {
         Intent activity = new Intent(this, pagina_profilo.class);
         activity.putExtra("username", username);
         startActivity(activity);
+        finish();
     }
 }

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -102,5 +103,11 @@ public class pagina_profilo extends AppCompatActivity {
         Intent activity = new Intent(this, Home.class);
         activity.putExtra("username", username);
         startActivity(activity);
+    }
+
+    public void doLogOut(View view) {
+        Intent activity = new Intent(this, Login.class);
+        startActivity(activity);
+        finish();
     }
 }
