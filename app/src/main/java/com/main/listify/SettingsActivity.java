@@ -53,7 +53,6 @@ public class SettingsActivity extends AppCompatActivity {
         // Se premo il bottone indietro vado alla Home, passandogli l'username
         switch (item.getItemId()) {
             case android.R.id.home:
-                System.out.println("sas");
                 Intent activity = new Intent(this, Home.class);
                 activity.putExtra("username", username);
                 startActivity(activity);

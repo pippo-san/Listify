@@ -53,7 +53,7 @@ public class Connection_helper {
     }
 
     public static String prediRisultati(String query) throws IOException {
-        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/query.php"+query);
+        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/query.php?query="+query);
 
         System.out.println("URL: "+url);
 
@@ -61,7 +61,7 @@ public class Connection_helper {
 
         String result = leggiPaginaHTML(url);
         System.out.println(result);
-        return "";
+        return result;
     }
 
     public static String leggiPaginaHTML(URL pagina) throws IOException {

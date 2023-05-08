@@ -18,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.main.listify.databinding.ActivityHomeBinding;
 
+import java.io.IOException;
+
 public class Home extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -73,7 +75,13 @@ public class Home extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.home, menu);
         TextView txt_username = (TextView)findViewById(R.id.txt_menu_username);
+        TextView txt_email = (TextView)findViewById(R.id.txt_menu_email);
         txt_username.setText(username);
+        try {
+            txt_email.setText(Connection_helper.prediRisultati("SELECT email FROM `utente` where username like \""+username+"\" "));
+        } catch (IOException e) {
+            txt_email.setText("Errore interno");
+        }
         return true;
     }
 

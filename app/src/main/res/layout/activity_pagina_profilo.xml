@@ -17,87 +17,95 @@
         app:srcCompat="@android:mipmap/sym_def_app_icon" />
 
     <TextView
-        android:id="@+id/textView_nome"
+        android:id="@+id/txt_profilo_cognome"
         android:layout_width="69dp"
         android:layout_height="22dp"
-        android:layout_marginTop="24dp"
-        android:text="nome"
-        app:layout_constraintTop_toBottomOf="@+id/textView_username"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="24dp" />
-
-    <TextView
-        android:id="@+id/textView_email"
-        android:layout_width="69dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="24dp"
-        android:text="email"
-        app:layout_constraintTop_toBottomOf="@+id/textView_cognome"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="24dp" />
-
-    <TextView
-        android:id="@+id/textView_username"
-        android:layout_width="69dp"
-        android:layout_height="22dp"
-        android:layout_marginTop="84dp"
-        android:text="username"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="24dp" />
-
-    <TextView
-        android:id="@+id/textView_cognome"
-        android:layout_width="69dp"
-        android:layout_height="22dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="24dp"
         android:text="cognome"
-        app:layout_constraintTop_toBottomOf="@+id/textView_nome"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="24dp" />
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_profilo_nome"
+        tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView_query_username"
+        android:id="@+id/txt_profilo_nome"
+        android:layout_width="69dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:text="nome"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_profilo_username"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txt_profilo_email"
+        android:layout_width="69dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
+        android:text="email"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_profilo_cognome"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txt_profilo_username"
+        android:layout_width="69dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="84dp"
+        android:text="username"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txt_profilo_query_username"
         android:layout_width="250dp"
         android:layout_height="22dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="84dp"
         android:text="query_username"
-        app:layout_constraintStart_toEndOf="@+id/textView_username"
+        app:layout_constraintStart_toEndOf="@+id/txt_profilo_username"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView_query_nome"
+        android:id="@+id/txt_profilo_query_nome"
         android:layout_width="250dp"
         android:layout_height="22dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="query_nome"
-        app:layout_constraintStart_toEndOf="@+id/textView_nome"
-        app:layout_constraintTop_toBottomOf="@+id/textView_query_username"
+        app:layout_constraintStart_toEndOf="@+id/txt_profilo_nome"
+        app:layout_constraintTop_toBottomOf="@+id/txt_profilo_query_username"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView_query_cognome"
+        android:id="@+id/txt_profilo_query_cognome"
         android:layout_width="250dp"
         android:layout_height="22dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="query_cognome"
-        app:layout_constraintStart_toEndOf="@+id/textView_cognome"
-        app:layout_constraintTop_toBottomOf="@+id/textView_query_nome"
+        app:layout_constraintStart_toEndOf="@+id/txt_profilo_cognome"
+        app:layout_constraintTop_toBottomOf="@+id/txt_profilo_query_nome"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/textView_query_email"
+        android:id="@+id/txt_profilo_query_email"
         android:layout_width="250dp"
         android:layout_height="22dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="query_email"
-        app:layout_constraintStart_toEndOf="@+id/textView_email"
-        app:layout_constraintTop_toBottomOf="@+id/textView_query_cognome"
+        app:layout_constraintStart_toEndOf="@+id/txt_profilo_email"
+        app:layout_constraintTop_toBottomOf="@+id/txt_profilo_query_cognome"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
