@@ -7,6 +7,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+
+import java.io.IOException;
 
 public class CreaGruppo extends AppCompatActivity {
     private String username;
@@ -46,5 +50,14 @@ public class CreaGruppo extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    public void creaGruppo(View view) {
+        EditText etxt_nome_gruppo = findViewById(R.id.etxt_nome_gruppo);
+        EditText etxt_descrizione_gruppo = findViewById(R.id.etxt_descrizione);
+        try {
+            Connection_helper.faiInsert("INSERT INTO gruppo VALUES(null, \""+etxt_nome_gruppo+"\", \""+etxt_descrizione_gruppo+"\")");
+        } catch (IOException e) {
+        }
     }
 }
