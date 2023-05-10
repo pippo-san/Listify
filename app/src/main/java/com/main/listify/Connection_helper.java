@@ -60,16 +60,16 @@ public class Connection_helper {
         return result;
     }
 
-    public static String faiInsert(String query) throws IOException {
+    public static void faiInsert(String query) throws IOException {
         URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/insertQuery.php?query="+query);
 
         System.out.println("URL: "+url);
 
         HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
 
-        String result = leggiPaginaHTML(url);
-        System.out.println(result);
-        return result;
+        // String result = leggiPaginaHTML(url);
+        // System.out.println(result);
+        // return result;
     }
 
     public static String leggiPaginaHTML(URL pagina) throws IOException {
