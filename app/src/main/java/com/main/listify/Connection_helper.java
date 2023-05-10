@@ -1,14 +1,9 @@
 package com.main.listify;
-import java.io.BufferedReader;
 import java.io.IOException;
 //import static com.main.listify.Utils.leggiPaginaHTML;
 
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
-import java.sql.Connection;
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Connection_helper {
@@ -52,7 +47,7 @@ public class Connection_helper {
         return result.equals("ok");
     }
 
-    public static String prediRisultati(String query) throws IOException {
+    public static String prendiRisultati(String query) throws IOException {
         URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/query.php?query="+query);
 
         System.out.println("URL: "+url);

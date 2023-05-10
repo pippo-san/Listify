@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -82,17 +81,17 @@ public class pagina_profilo extends AppCompatActivity {
 
         txt_username.setText(username);
         try {
-            txt_nome.setText(Connection_helper.prediRisultati("SELECT nome FROM `utente` where username like \""+username+"\" "));
+            txt_nome.setText(Connection_helper.prendiRisultati("SELECT nome FROM `utente` where username like \""+username+"\" "));
         } catch (IOException e) {
             txt_nome.setText("Errore interno");
         }
         try {
-            txt_cognome.setText(Connection_helper.prediRisultati("SELECT cognome FROM `utente` where username like \""+username+"\" "));
+            txt_cognome.setText(Connection_helper.prendiRisultati("SELECT cognome FROM `utente` where username like \""+username+"\" "));
         } catch (IOException e) {
             txt_cognome.setText("Errore interno");
         }
         try {
-            txt_email.setText(Connection_helper.prediRisultati("SELECT email FROM `utente` where username like \""+username+"\" "));
+            txt_email.setText(Connection_helper.prendiRisultati("SELECT email FROM `utente` where username like \""+username+"\" "));
         } catch (IOException e) {
             txt_email.setText("Errore interno");
         }
