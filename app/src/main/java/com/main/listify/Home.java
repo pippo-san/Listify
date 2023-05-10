@@ -26,7 +26,7 @@ public class Home extends AppCompatActivity {
     private ActivityHomeBinding binding;
 
     private TextView txt_username;
-    private TextView txt_email;
+    private TextView txt_nome_gruppo;
 
     private String username;
 
@@ -68,6 +68,7 @@ public class Home extends AppCompatActivity {
             startActivity(activity);
         }
 
+        popolaTextView();
     }
 
     @Override
@@ -103,5 +104,15 @@ public class Home extends AppCompatActivity {
         activity.putExtra("username", username);
         startActivity(activity);
         finish();
+    }
+
+    public void popolaTextView(){
+        txt_nome_gruppo = findViewById(R.id.query_nome_gruppo);
+
+        try {
+            txt_nome_gruppo.setText(Connection_helper.prendiRisultati("select nome from gruppo inner join famiglia on gruppo.id_gruppo=famiglia.id_gruppo where username like \""+username+"\" "));
+        } catch (Exception e) {
+            txt_nome_gruppo.setText("Errore interno");
+        }
     }
 }
