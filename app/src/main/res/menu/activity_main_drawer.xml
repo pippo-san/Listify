@@ -21,5 +21,11 @@
             android:icon="@drawable/user_profile"
             android:title="Profilo"
             android:onClick="apriProfilo"/>
+
+        <item
+            android:id="@+id/nav_crea_lista"
+            android:icon="@android:drawable/ic_input_add"
+            android:onClick="nuovaListaElenco"
+            android:title="Nuovo" />
     </group>
 </menu>

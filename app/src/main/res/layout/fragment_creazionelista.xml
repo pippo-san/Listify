@@ -59,6 +59,7 @@
         android:onClick="doLogin"
         android:text="crea lista"
         android:textSize="20sp"
+        tools:onClick="crea_lista"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.465"

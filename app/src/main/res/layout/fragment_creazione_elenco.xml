@@ -7,14 +7,14 @@
     tools:context="ui.elenco.Fragment1">
 
     <EditText
-        android:id="@+id/etxt_nome_lista"
+        android:id="@+id/etxt_nome_elenco"
         android:layout_width="172dp"
         android:layout_height="50dp"
         android:autofillHints="username"
         android:hint="nome elenco"
         android:inputType="textEmailAddress"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_lista"
+        app:layout_constraintBottom_toTopOf="@+id/button_elenco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,14 +22,14 @@
         app:layout_constraintVertical_bias="0.37" />
 
     <EditText
-        android:id="@+id/etxt_data_lista"
+        android:id="@+id/etxt_data_elenco"
         android:layout_width="172dp"
         android:layout_height="50dp"
         android:autofillHints="username"
         android:hint="data elenco"
         android:inputType="textEmailAddress"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_lista"
+        app:layout_constraintBottom_toTopOf="@+id/button_elenco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +44,7 @@
         android:hint="id gruppo"
         android:inputType="textEmailAddress"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/button_lista"
+        app:layout_constraintBottom_toTopOf="@+id/button_elenco"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +52,7 @@
         app:layout_constraintVertical_bias="0.837" />
 
     <Button
-        android:id="@+id/button_lista"
+        android:id="@+id/button_elenco"
         android:layout_width="164dp"
         android:layout_height="58dp"
         android:backgroundTint="#006633"

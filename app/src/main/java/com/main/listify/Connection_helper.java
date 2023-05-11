@@ -67,8 +67,8 @@ public class Connection_helper {
 
         HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
 
-        // String result = leggiPaginaHTML(url);
-        // System.out.println(result);
+         String result = leggiPaginaHTML(url);
+         System.out.println(result);
         // return result;
     }
 
@@ -87,5 +87,7 @@ public class Connection_helper {
         return letto;
 
     }
+
+
 
 }

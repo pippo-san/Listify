@@ -65,6 +65,7 @@ public class CreaGruppo extends AppCompatActivity {
             Connection_helper.faiInsert("INSERT INTO famiglia values(" +
                     "\""+username+"\", SELECT id_gruppo FROM gruppo where nome like \""+etxt_nome_gruppo.getText()+"\" order by id_gruppo desc limit 1 )");
         } catch (IOException e) {
+
         }
         Toast.makeText(getApplicationContext(), "Gruppo creato", Toast.LENGTH_SHORT).show();
     }
