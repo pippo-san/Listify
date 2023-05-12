@@ -17,12 +17,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.main.listify.databinding.ActivityHomeBinding;
+import com.main.listify.ui.visualizza_liste.HomeFragment;
 
 import java.io.IOException;
 
 public class Home extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private AppBarConfiguration mAppBarConfiguration_liste;
+    private AppBarConfiguration mAppBarConfiguration_elenchi;
     private ActivityHomeBinding binding;
 
     private TextView txt_username;
@@ -50,13 +53,28 @@ public class Home extends AppCompatActivity {
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_home)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+      /*  mAppBarConfiguration_liste = new AppBarConfiguration.Builder(R.id.nav_lista)
+                .setOpenableLayout(drawer)
+                .build();
+        NavController navController_liste = Navigation.findNavController(this, R.id.text_slideshow_liste);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration_liste);
+        NavigationUI.setupWithNavController(navigationView, navController_liste);
+
+/*
+        mAppBarConfiguration_elenchi = new AppBarConfiguration.Builder(R.id.nav_elenco)
+                .setOpenableLayout(drawer)
+                .build();
+        NavController navController_elenco = Navigation.findNavController(this, R.id.text_slideshow_elenchi);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration_elenchi);
+        NavigationUI.setupWithNavController(navigationView, navController_elenco);*/
+
 
         // Scritto
         try {
@@ -108,6 +126,20 @@ public class Home extends AppCompatActivity {
 
     public void nuovaListaElenco(MenuItem item) {
         Intent activity = new Intent(this, CreazioneListaElenco.class);
+        activity.putExtra("username", username);
+        startActivity(activity);
+        finish();
+    }
+
+    public void apriHomeListe(MenuItem item) {
+        Intent activity = new Intent(this, com.main.listify.ui.visualizza_liste.HomeFragment.class);
+        activity.putExtra("username", username);
+        startActivity(activity);
+        finish();
+    }
+
+    public void apriHomeElenchi(MenuItem item) {
+        Intent activity = new Intent(this, com.main.listify.ui.visualizza_elenchi.HomeFragment.class);
         activity.putExtra("username", username);
         startActivity(activity);
         finish();
