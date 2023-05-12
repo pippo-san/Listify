@@ -60,15 +60,15 @@ public class Connection_helper {
         return result;
     }
 
-    public static void faiInsert(String query) throws IOException {
-        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/insertQuery.php?query="+query);
+    public static void creaGruppo(String username, String nomeGruppo, String descrizioneGruppo) throws IOException {
+        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/creaGruppo.php?username="+username+"&nomeGruppo="+nomeGruppo+"&descrizioneGruppo="+descrizioneGruppo);
 
         System.out.println("URL: "+url);
 
         HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
 
-         String result = leggiPaginaHTML(url);
-         System.out.println(result);
+        //String result = leggiPaginaHTML(url);
+        //System.out.println(result);
         // return result;
     }
 

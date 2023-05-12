@@ -57,15 +57,11 @@ public class CreaGruppo extends AppCompatActivity {
         EditText etxt_nome_gruppo = findViewById(R.id.etxt_nome_gruppo);
         EditText etxt_descrizione_gruppo = findViewById(R.id.etxt_descrizione);
 
-        // Query ultimo gruppo creato
-        // SELECT id_gruppo FROM gruppo where nome like "prova" order by id_gruppo desc limit 1
-
         try {
-            Connection_helper.faiInsert("INSERT INTO gruppo VALUES(null, \""+etxt_nome_gruppo.getText()+"\", \""+etxt_descrizione_gruppo.getText()+"\")");
-            Connection_helper.faiInsert("INSERT INTO famiglia values(" +
-                    "\""+username+"\", SELECT id_gruppo FROM gruppo where nome like \""+etxt_nome_gruppo.getText()+"\" order by id_gruppo desc limit 1 )");
-        } catch (IOException e) {
+            Connection_helper.creaGruppo(username, etxt_nome_gruppo.getText().toString(), etxt_descrizione_gruppo.getText().toString());
 
+        } catch (IOException e) {
+            System.out.println(e);
         }
         Toast.makeText(getApplicationContext(), "Gruppo creato", Toast.LENGTH_SHORT).show();
     }

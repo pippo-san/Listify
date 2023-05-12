@@ -59,10 +59,10 @@ String username;
         EditText nome_elenco=findViewById(R.id.etxt_nome_elenco);
         EditText data_elenco=findViewById(R.id.etxt_data_elenco);
         EditText id_gruppo=findViewById(R.id.etxt_id_gruppo);
-        try {
-            Connection_helper.faiInsert("INSERT INTO elenco VALUES(\""+nome_elenco.getText()+"\", \""+data_elenco.getText()+"\", "+id_gruppo+")");
-        } catch (IOException e) {
-        }
+        //try {
+        //    Connection_helper.faiInsert("INSERT INTO elenco VALUES(\""+nome_elenco.getText()+"\", \""+data_elenco.getText()+"\", "+id_gruppo+")");
+        //} catch (IOException e) {
+        //}
         Toast.makeText(getApplicationContext(), "elenco creata con successo!", Toast.LENGTH_SHORT).show();
         Intent activity = new Intent(this, Home.class);
         activity.putExtra("username", username);
@@ -80,10 +80,10 @@ String username;
         EditText nome_elenco=findViewById(R.id.etxt_nome_elenco);
         EditText data_elenco=findViewById(R.id.etxt_data_elenco);
         EditText id_gruppo=findViewById(R.id.etxt_id_gruppo);
-        try {
-            Connection_helper.faiInsert("INSERT INTO elenco VALUES(\""+nome_elenco.getText()+"\", "+id_gruppo+", \""+data_elenco.getText()+"\")");
-        } catch (IOException e) {
-        }
+        //try {
+        //    Connection_helper.faiInsert("INSERT INTO elenco VALUES(\""+nome_elenco.getText()+"\", "+id_gruppo+", \""+data_elenco.getText()+"\")");
+        //} catch (IOException e) {
+        //}
         Toast.makeText(getApplicationContext(), "elenco creato con successo!", Toast.LENGTH_SHORT).show();
         Intent activity = new Intent(this, Home.class);
         activity.putExtra("username", username);
