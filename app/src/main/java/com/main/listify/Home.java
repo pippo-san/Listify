@@ -2,22 +2,20 @@ package com.main.listify;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Menu;
 import android.widget.TextView;
 
-import com.google.android.material.navigation.NavigationView;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.navigation.NavigationView;
 import com.main.listify.databinding.ActivityHomeBinding;
-import com.main.listify.ui.visualizza_liste.HomeFragment;
 
 import java.io.IOException;
 
@@ -132,14 +130,14 @@ public class Home extends AppCompatActivity {
     }
 
     public void apriHomeListe(MenuItem item) {
-        Intent activity = new Intent(this, com.main.listify.ui.visualizza_liste.HomeFragment.class);
+        Intent activity = new Intent(this, Home_lista.class);
         activity.putExtra("username", username);
         startActivity(activity);
         finish();
     }
 
     public void apriHomeElenchi(MenuItem item) {
-        Intent activity = new Intent(this, com.main.listify.ui.visualizza_elenchi.HomeFragment.class);
+        Intent activity = new Intent(this, Home_elenco.class);
         activity.putExtra("username", username);
         startActivity(activity);
         finish();

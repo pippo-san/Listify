@@ -105,12 +105,6 @@ public class Home_gruppo extends AppCompatActivity {
         finish();
     }
 
-    public void nuovaListaElenco(MenuItem item) {
-        Intent activity = new Intent(this, CreazioneListaElenco.class);
-        activity.putExtra("username", username);
-        startActivity(activity);
-        finish();
-    }
 
     public void popolaTextView(){
         txt_nome_gruppo = findViewById(R.id.query_nome_gruppo);

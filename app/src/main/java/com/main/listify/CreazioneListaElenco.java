@@ -1,12 +1,14 @@
 package com.main.listify;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -21,6 +23,7 @@ String username;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.creazione_lista_elenco);
+
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             //actionBar.set
@@ -28,6 +31,7 @@ String username;
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowHomeEnabled(true);
         }
+
         try {
             Bundle passaggioDati = getIntent().getExtras();
             username = passaggioDati.get("username").toString();
@@ -35,22 +39,26 @@ String username;
             // Se per caso non ho l'username, pazienza, farà un altra volta il login
             System.out.println(e);
         }
-
-        /*GESTISCO IL PULSANTE INDIETRO (BACK)*/
-        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
-            @Override
-            public void handleOnBackPressed() {
-                // Handle the back button event
-                onBackPressed();
-            }
-        };
-        getOnBackPressedDispatcher().addCallback(this, callback);
-        /*END*/
-
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        // Se premo il bottone indietro vado alla Home, passandogli l'username
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                Intent activity = new Intent(this, Home.class);
+                activity.putExtra("username", username);
+                startActivity(activity);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        }
 
-    public View onCreateView_lista(LayoutInflater inflater, ViewGroup container,
+
+
+
+        public View onCreateView_lista(LayoutInflater inflater, ViewGroup container,
                                     Bundle savedInstanceState) {
 // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_creazionelista, container, false);
