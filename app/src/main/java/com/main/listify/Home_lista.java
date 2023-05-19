@@ -7,9 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ListView;
+import android.widget.TextView;
 
 public class Home_lista extends AppCompatActivity {
-    String username;
+    private String username;
+    private TextView txt_nome_lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,7 @@ public class Home_lista extends AppCompatActivity {
             // Se per caso non ho l'username, pazienza, farà un altra volta il login
             System.out.println(e);
         }
+        popolaTextView();
     }
 
     @Override
@@ -43,6 +47,17 @@ public class Home_lista extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void popolaTextView(){
+        txt_nome_lista = findViewById(R.id.listView_visualizza_liste);
+
+        try {
+            txt_nome_lista.setText(Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" "));
+        } catch (Exception e) {
+            TextView errore=findViewById(R.id.errore_home_lista);
+            errore.setText("Errore Interno");
         }
     }
 }

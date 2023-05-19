@@ -152,4 +152,19 @@ public class Home extends AppCompatActivity {
             txt_nome_gruppo.setText("Errore interno");
         }
     }
+
+    public void apri_gruppo(){
+        txt_nome_gruppo = findViewById(R.id.query_nome_gruppo);
+
+        try {
+            txt_nome_gruppo.setText(Connection_helper.prendiRisultati("select nome from gruppo inner join famiglia on gruppo.id_gruppo=famiglia.id_gruppo where username like \""+username+"\" "));
+            Intent activity = new Intent(this, Home_gruppo.class);
+            activity.putExtra("username", username);
+            activity.putExtra("nomeGruppo", txt_nome_gruppo.getText());
+            startActivity(activity);
+            finish();
+        } catch (Exception e) {
+            txt_nome_gruppo.setText("Errore interno");
+        }
+    }
 }
