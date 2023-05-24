@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,11 +15,13 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.main.listify.databinding.ActivityHomeBinding;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Home extends AppCompatActivity {
 
@@ -29,6 +33,7 @@ public class Home extends AppCompatActivity {
     private TextView txt_username;
     private TextView txt_nome_gruppo;
 
+    private ListView listViewGruppi;
     private String username;
 
     @Override
@@ -84,7 +89,11 @@ public class Home extends AppCompatActivity {
             startActivity(activity);
         }
 
-        popolaTextView();
+        try {
+            popolaTextView();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -143,28 +152,44 @@ public class Home extends AppCompatActivity {
         finish();
     }
 
-    public void popolaTextView(){
-        txt_nome_gruppo = findViewById(R.id.query_nome_gruppo);
+    public void popolaTextView() throws IOException {
+        listViewGruppi = findViewById(R.id.listaGruppi);
 
-        try {
-            txt_nome_gruppo.setText(Connection_helper.prendiRisultati("select nome from gruppo inner join famiglia on gruppo.id_gruppo=famiglia.id_gruppo where username like \""+username+"\" "));
-        } catch (Exception e) {
-            txt_nome_gruppo.setText("Errore interno");
-        }
+        ArrayList <String> listaGruppi = new ArrayList<>();
+        listaGruppi.add(Connection_helper.prendiRisultati("select nome from gruppo inner join famiglia on gruppo.id_gruppo=famiglia.id_gruppo where username like \""+username+"\" "));
+        listaGruppi.add("sassari");
+        listaGruppi.add("sassari");
+        listaGruppi.add("sassari");listaGruppi.add("sassari");
+        listaGruppi.add("sassari");
+
+
+        ArrayAdapter<String> arr;
+        arr
+                = new ArrayAdapter<String>(
+                this,
+                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+                listaGruppi);
+        listViewGruppi.setAdapter(arr);
+
+        //try {
+        //    txt_nome_gruppo.setText(Connection_helper.prendiRisultati("select nome from gruppo inner join famiglia on gruppo.id_gruppo=famiglia.id_gruppo where username like \""+username+"\" "));
+        //} catch (Exception e) {
+        //    txt_nome_gruppo.setText("Errore interno");
+        //}
     }
 
-    public void apri_gruppo(){
-        txt_nome_gruppo = findViewById(R.id.query_nome_gruppo);
-
-        try {
-            txt_nome_gruppo.setText(Connection_helper.prendiRisultati("select nome from gruppo inner join famiglia on gruppo.id_gruppo=famiglia.id_gruppo where username like \""+username+"\" "));
-            Intent activity = new Intent(this, Home_gruppo.class);
-            activity.putExtra("username", username);
-            activity.putExtra("nomeGruppo", txt_nome_gruppo.getText());
-            startActivity(activity);
-            finish();
-        } catch (Exception e) {
-            txt_nome_gruppo.setText("Errore interno");
-        }
-    }
+    //public void apri_gruppo(){
+    //    txt_nome_gruppo = findViewById(R.id.query_nome_gruppo);
+//
+    //    try {
+    //        txt_nome_gruppo.setText(Connection_helper.prendiRisultati("select nome from gruppo inner join famiglia on gruppo.id_gruppo=famiglia.id_gruppo where username like \""+username+"\" "));
+    //        Intent activity = new Intent(this, Home_gruppo.class);
+    //        activity.putExtra("username", username);
+    //        activity.putExtra("nomeGruppo", txt_nome_gruppo.getText());
+    //        startActivity(activity);
+    //        finish();
+    //    } catch (Exception e) {
+    //        txt_nome_gruppo.setText("Errore interno");
+    //    }
+    //}
 }
