@@ -1,4 +1,8 @@
 package com.main.listify;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.widget.SimpleCursorAdapter;
+
 import java.io.IOException;
 //import static com.main.listify.Utils.leggiPaginaHTML;
 
@@ -7,7 +11,13 @@ import java.net.URL;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
-public class Connection_helper {
+public class Connection_helper  {
+
+    private static final int DATABASE_VERSION=3;
+    private static final String KEY_ROWID="_id";
+    private static final String KEY_NOME_LISTA="nome_lista";
+    private static final String KEY_GRUPPO="id_gruppo";
+    private Context context;
 
     public static boolean registraUtente(String username, String nome, String cognome, String email, String pass) throws IOException {
         String querystring = "?username="+username+"&nome="+nome+"&cognome="+cognome+"&email="+email+"&pass="+pass;
@@ -87,7 +97,5 @@ public class Connection_helper {
         return letto;
 
     }
-
-
 
 }
