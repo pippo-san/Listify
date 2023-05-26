@@ -16,6 +16,18 @@
             android:onClick="apriProfilo"/>
 
         <item
+            android:id="@+id/nav_lista"
+            android:icon="@drawable/elenco"
+            android:title="lista"
+            android:onClick="apriHomeListe"/>
+
+        <item
+            android:id="@+id/nav_elenco"
+            android:icon="@drawable/lista"
+            android:onClick="apriHomeElenchi"
+            android:title="elenco" />
+
+        <item
             android:id="@+id/nav_crea_lista"
             android:icon="@android:drawable/ic_input_add"
             android:onClick="nuovaListaElenco"
