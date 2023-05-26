@@ -2,6 +2,7 @@ package com.main.listify;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 import java.io.IOException;
 //import static com.main.listify.Utils.leggiPaginaHTML;
@@ -96,6 +97,14 @@ public class Connection_helper  {
 
         return letto;
 
+    }
+
+    public static void visibilita(TextView textView, String s){
+        if(s!=""){
+            textView.setText(s);
+        }else{
+            textView.setVisibility(TextView.INVISIBLE);
+        }
     }
 
 }

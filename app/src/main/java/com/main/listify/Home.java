@@ -159,7 +159,8 @@ public class Home extends AppCompatActivity {
         listaGruppi.add(Connection_helper.prendiRisultati("select nome from gruppo inner join famiglia on gruppo.id_gruppo=famiglia.id_gruppo where username like \""+username+"\" "));
         listaGruppi.add("sassari");
         listaGruppi.add("sassari");
-        listaGruppi.add("sassari");listaGruppi.add("sassari");
+        listaGruppi.add("sassari");
+        listaGruppi.add("sassari");
         listaGruppi.add("sassari");
 
 

@@ -29,7 +29,7 @@ public class Home_lista extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             //actionBar.set
-            actionBar.setTitle("Home Lista");
+            actionBar.setTitle("Visualizzazione delle Liste");
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowHomeEnabled(true);
         }
@@ -67,16 +67,24 @@ public class Home_lista extends AppCompatActivity {
         txt_nome_lista_6 = findViewById(R.id.listView_visualizza_liste_6);
 
         try {
-            txt_nome_lista_1.setText(Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\"  limit 1"));
-            txt_nome_lista_2.setText(Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\"  limit 1 offset 1"));
-            txt_nome_lista_3.setText(Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 2"));
-            txt_nome_lista_4.setText(Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 3"));
-            txt_nome_lista_5.setText(Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 4"));
-            txt_nome_lista_6.setText(Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 5"));
+            Connection_helper.visibilita(txt_nome_lista_1, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1"));
+            Connection_helper.visibilita(txt_nome_lista_2, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 1"));
+            Connection_helper.visibilita(txt_nome_lista_3, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 2"));
+            Connection_helper.visibilita(txt_nome_lista_4, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 3"));
+            Connection_helper.visibilita(txt_nome_lista_5, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 4"));
+            Connection_helper.visibilita(txt_nome_lista_6, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 5"));
 
         } catch (Exception e) {
             TextView errore=findViewById(R.id.errore_home_lista);
+            errore.setVisibility(TextView.VISIBLE);
             errore.setText("Errore Interno");
         }
+    }
+
+    public void apri_lista(TextView textView){
+        Intent activity = new Intent(this, Home_elenco.class);
+        activity.putExtra("username", username);
+        startActivity(activity);
+        finish();
     }
 }
