@@ -166,9 +166,10 @@ public class Home extends AppCompatActivity {
 
         ArrayAdapter<String> arr;
         arr
-                = new ArrayAdapter<String>(
+                = new ArrayAdapter<>(
                 this,
-                androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,
+                R.layout.layout_list_view_home,
+                R.id.itemTextView,
                 listaGruppi);
         listViewGruppi.setAdapter(arr);
 
