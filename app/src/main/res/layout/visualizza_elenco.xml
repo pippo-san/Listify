@@ -6,12 +6,12 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView9"
-        android:layout_width="347dp"
-        android:layout_height="692dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/elenco2"
+        android:layout_width="356dp"
+        android:layout_height="642dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="52dp"
+        android:text="bla bla bla"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

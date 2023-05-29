@@ -15,6 +15,9 @@ import java.util.ArrayList;
 public class VisualizzaElenco extends AppCompatActivity {
     private String username;
 
+    private String nomeElenco;
+    TextView elenco;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +32,12 @@ public class VisualizzaElenco extends AppCompatActivity {
         try {
             Bundle passaggioDati = getIntent().getExtras();
             username = passaggioDati.get("username").toString();
+            nomeElenco = passaggioDati.get("nome_elenco").toString();
         } catch (NullPointerException e) {
             // Se per caso non ho l'username, pazienza, farà un altra volta il login
             System.out.println(e);
         }
+        popolaElenco();
     }
 
     @Override
@@ -47,6 +52,15 @@ public class VisualizzaElenco extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void popolaElenco(){
+        elenco=findViewById(R.id.elenco2);
+        try {
+            Connection_helper.visibilita(elenco, Connection_helper.prendiRisultati("SELECT contenuto from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" and nome_lista like \""+nomeElenco+"\""));
+        }catch (Exception e) {
+            System.out.println("errore interno");
         }
     }
 

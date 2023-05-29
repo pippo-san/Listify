@@ -87,6 +87,12 @@
         <activity
             android:name=".CreazioneListaElenco"
             android:exported="false" />
+        <activity
+            android:name=".VisualizzaLista"
+            android:exported="false" />
+        <activity
+            android:name=".VisualizzaElenco"
+            android:exported="false" />
     </application>
 
 </manifest>

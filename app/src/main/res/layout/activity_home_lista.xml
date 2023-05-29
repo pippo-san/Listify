@@ -8,7 +8,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp">
 
-    <TextView
+    <Button
         android:id="@+id/errore_home_lista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,65 +17,72 @@
         android:layout_marginBottom="672dp"
         android:text="Visualizzazione delle liste"
         android:visibility="invisible"
-        android:onClick="apri_lista"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/listView_visualizza_liste_2"
-        android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <TextView
-        android:id="@+id/listView_visualizza_liste_3"
-        android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="260dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <TextView
-        android:id="@+id/listView_visualizza_liste_4"
-        android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="360dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <TextView
-        android:id="@+id/listView_visualizza_liste_5"
-        android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="460dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <TextView
-        android:id="@+id/listView_visualizza_liste_6"
-        android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="560dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
-
-    <TextView
+    <Button
         android:id="@+id/listView_visualizza_liste_1"
         android:layout_width="match_parent"
         android:layout_height="62dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="16dp"
+        android:onClick="apri_lista" />
+
+
+    <Button
+        android:id="@+id/listView_visualizza_liste_2"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp"
+        android:onClick="apri_lista" />
+
+    <Button
+        android:id="@+id/listView_visualizza_liste_3"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="260dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp"
+        android:onClick="apri_lista" />
+
+    <Button
+        android:id="@+id/listView_visualizza_liste_4"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="360dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp"
+        android:onClick="apri_lista" />
+
+    <Button
+        android:id="@+id/listView_visualizza_liste_5"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="460dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp"
+        android:onClick="apri_lista" />
+
+    <Button
+        android:id="@+id/listView_visualizza_liste_6"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="560dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp"
+        android:onClick="apri_lista" />
+    
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
