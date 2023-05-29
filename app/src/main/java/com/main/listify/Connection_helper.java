@@ -112,7 +112,6 @@ public class Connection_helper  {
     }
 
     public static String leggiPaginaHTML(URL pagina) throws IOException {
-        //BufferedReader in = new BufferedReader(new InputStreamReader(pagina.getInputStream()));
         String letto = "";
         try {
             Scanner in = new Scanner(pagina.openStream());
