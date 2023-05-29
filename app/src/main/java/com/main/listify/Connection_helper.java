@@ -65,9 +65,16 @@ public class Connection_helper  {
         System.out.println("URL: "+url);
 
         HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
-
         String result = leggiPaginaHTML(url);
-        System.out.println(result);
+        /*try {
+            String result = leggiPaginaHTML(url);
+            do {
+
+            } while ();*/
+            System.out.println("risultati lista: " + result);
+       /* }catch (Exception e){
+            System.out.println("errore do while");
+        }*/
         return result;
     }
 
@@ -88,12 +95,14 @@ public class Connection_helper  {
         String letto = "";
         try {
             Scanner in = new Scanner(pagina.openStream());
-
-            letto = in.nextLine();
+            while((letto=in.nextLine())!=null){
+                letto = in.nextLine();
+            }
             in.close();
         } catch (NoSuchElementException e) {
             e.printStackTrace();
         }
+
 
         return letto;
 

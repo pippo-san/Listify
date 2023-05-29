@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class Home_elenco extends AppCompatActivity {
     String username;
-    
+
     TextView txt_nome_elenco_1;
     TextView txt_nome_elenco_2;
     TextView txt_nome_elenco_3;
