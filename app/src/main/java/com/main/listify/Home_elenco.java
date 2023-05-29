@@ -7,11 +7,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+
+import java.io.IOException;
 
 public class Home_elenco extends AppCompatActivity {
     String username;
-    
+
     TextView txt_nome_elenco_1;
     TextView txt_nome_elenco_2;
     TextView txt_nome_elenco_3;
@@ -77,5 +80,14 @@ public class Home_elenco extends AppCompatActivity {
             errore.setVisibility(TextView.VISIBLE);
             errore.setText("Errore Interno");
         }
+    }
+
+    public void apri_elenco(View view) throws IOException {
+        Intent activity = new Intent(this, VisualizzaElenco.class);
+        activity.putExtra("username", username);
+        activity.putExtra("nome_elenco", Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\""));
+
+        startActivity(activity);
+        finish();
     }
 }

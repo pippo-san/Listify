@@ -7,19 +7,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ListView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Home_lista extends AppCompatActivity {
     private String username;
-    TextView txt_nome_lista_1;
-    TextView txt_nome_lista_2;
-    TextView txt_nome_lista_3;
-    TextView txt_nome_lista_4;
-    TextView txt_nome_lista_5;
-    TextView txt_nome_lista_6;
+    Button txt_nome_lista_1;
+    Button txt_nome_lista_2;
+    Button txt_nome_lista_3;
+    Button txt_nome_lista_4;
+    Button txt_nome_lista_5;
+    Button txt_nome_lista_6;
 
 
     @Override
@@ -59,12 +61,12 @@ public class Home_lista extends AppCompatActivity {
     }
 
     public void popolaTextView(){
-        txt_nome_lista_1 = findViewById(R.id.listView_visualizza_liste_1);
-        txt_nome_lista_2 = findViewById(R.id.listView_visualizza_liste_2);
-        txt_nome_lista_3 = findViewById(R.id.listView_visualizza_liste_3);
-        txt_nome_lista_4 = findViewById(R.id.listView_visualizza_liste_4);
-        txt_nome_lista_5 = findViewById(R.id.listView_visualizza_liste_5);
-        txt_nome_lista_6 = findViewById(R.id.listView_visualizza_liste_6);
+        txt_nome_lista_1=findViewById(R.id.listView_visualizza_liste_1);
+        txt_nome_lista_2=findViewById(R.id.listView_visualizza_liste_2);
+        txt_nome_lista_3=findViewById(R.id.listView_visualizza_liste_3);
+        txt_nome_lista_4=findViewById(R.id.listView_visualizza_liste_4);
+        txt_nome_lista_5=findViewById(R.id.listView_visualizza_liste_5);
+        txt_nome_lista_6=findViewById(R.id.listView_visualizza_liste_6);
 
         try {
             Connection_helper.visibilita(txt_nome_lista_1, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1"));
@@ -74,6 +76,7 @@ public class Home_lista extends AppCompatActivity {
             Connection_helper.visibilita(txt_nome_lista_5, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 4"));
             Connection_helper.visibilita(txt_nome_lista_6, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 5"));
 
+
         } catch (Exception e) {
             TextView errore=findViewById(R.id.errore_home_lista);
             errore.setVisibility(TextView.VISIBLE);
@@ -81,9 +84,10 @@ public class Home_lista extends AppCompatActivity {
         }
     }
 
-    public void apri_lista(TextView textView){
-        Intent activity = new Intent(this, Home_elenco.class);
+    public void apri_lista(View view) throws IOException {
+        Intent activity = new Intent(this, VisualizzaLista.class);
         activity.putExtra("username", username);
+        activity.putExtra("nome_lista", Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\""));
         startActivity(activity);
         finish();
     }
