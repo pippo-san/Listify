@@ -121,7 +121,7 @@ public class Connection_helper  {
             }
             in.close();
         } catch (NoSuchElementException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         }
 
 
