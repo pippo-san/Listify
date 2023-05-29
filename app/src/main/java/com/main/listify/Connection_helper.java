@@ -128,4 +128,28 @@ public class Connection_helper  {
         return letto;
 
     }
+
+    public static String prendiNome(String username) throws IOException {
+        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/prendiNome.php?username="+username);
+
+        System.out.println("URL: "+url);
+
+        HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
+        String result = leggiPaginaHTML(url);
+
+        System.out.println("nome: " + result);
+        return result;
+    }
+
+    public static String prendiCognome(String username) throws IOException {
+        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/prendiCognome.php?username="+username);
+
+        System.out.println("URL: "+url);
+
+        HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
+        String result = leggiPaginaHTML(url);
+
+        System.out.println("cognome: " + result);
+        return result;
+    }
 }
