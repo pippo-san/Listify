@@ -36,7 +36,7 @@ public class Registrazione extends AppCompatActivity {
                     if (Connection_helper.registraUtente(username, nome, cognome, email, password)){
                         Intent activity = new Intent(this, Home.class);
                         startActivity(activity);
-
+                        this.finish();
                     }else {
                         Toast.makeText(getApplicationContext(), "Username già esistente, scegline un altro!", Toast.LENGTH_SHORT).show();
                     }

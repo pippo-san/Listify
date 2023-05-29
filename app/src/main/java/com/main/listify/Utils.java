@@ -1,6 +1,8 @@
 package com.main.listify;
 
 
+import android.view.View;
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -34,7 +36,6 @@ public class Utils {
             throw new RuntimeException(e);
         }
     }
-
 
 }
 

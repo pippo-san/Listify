@@ -1,5 +1,6 @@
 package com.main.listify;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -36,6 +37,7 @@ public class Home extends AppCompatActivity {
     private ListView listViewGruppi;
     private String username;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +82,7 @@ public class Home extends AppCompatActivity {
 
 
         // Scritto
+
         try {
             Bundle passaggioDati = getIntent().getExtras();
             username = passaggioDati.get("username").toString();
@@ -128,7 +131,7 @@ public class Home extends AppCompatActivity {
         Intent activity = new Intent(this, pagina_profilo.class);
         activity.putExtra("username", username);
         startActivity(activity);
-        finish();
+        this.finish();
     }
 
     public void nuovaListaElenco(MenuItem item) {
@@ -152,17 +155,21 @@ public class Home extends AppCompatActivity {
         finish();
     }
 
+    public void apriGruppoCorrispondente(View view){
+        System.out.println(view.getId());
+        TextView tw = (TextView) findViewById(view.getId());
+        System.out.println(tw.getText());
+    }
+
     public void popolaTextView() throws IOException {
         listViewGruppi = findViewById(R.id.listaGruppi);
 
         ArrayList <String> listaGruppi = new ArrayList<>();
         listaGruppi.add(Connection_helper.prendiRisultati("select nome from gruppo inner join famiglia on gruppo.id_gruppo=famiglia.id_gruppo where username like \""+username+"\" "));
-        listaGruppi.add("sassari");
-        listaGruppi.add("sassari");
-        listaGruppi.add("sassari");
-        listaGruppi.add("sassari");
-        listaGruppi.add("sassari");
+        listaGruppi.add("sassari");listaGruppi.add("sassari");listaGruppi.add("sassari");listaGruppi.add("sassari");listaGruppi.add("sassari");listaGruppi.add("sassari");listaGruppi.add("sassari");listaGruppi.add("sassari");listaGruppi.add("sassari");listaGruppi.add("sassari");listaGruppi.add("sassari");listaGruppi.add("sassari");listaGruppi.add("sassari");listaGruppi.add("sassari");
 
+        GruppiAdapter gr = new GruppiAdapter(Home.this, listaGruppi);
+        listViewGruppi.setAdapter(gr);
 
         ArrayAdapter<String> arr;
         arr

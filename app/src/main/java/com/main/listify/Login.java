@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.Connection;
+import static com.main.listify.Utils.*;
 
 public class Login extends AppCompatActivity {
 
@@ -52,6 +54,7 @@ public class Login extends AppCompatActivity {
         if ( !(username.equals("") && password.equals("")) ){
             if(Connection_helper.accessoUtente(username.toString(), password.toString())){
                 open_activity_home(view, username);
+                this.finish();
             }else{
                 Toast.makeText(getApplicationContext(), "username/password errati!", Toast.LENGTH_SHORT).show();
             }

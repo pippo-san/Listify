@@ -102,11 +102,12 @@ public class pagina_profilo extends AppCompatActivity {
         Intent activity = new Intent(this, Home.class);
         activity.putExtra("username", username);
         startActivity(activity);
+        this.finish();
     }
 
     public void doLogOut(View view) {
         Intent activity = new Intent(this, Login.class);
         startActivity(activity);
-        finish();
+        this.finish();
     }
 }
