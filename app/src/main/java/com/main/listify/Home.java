@@ -107,7 +107,7 @@ public class Home extends AppCompatActivity {
         TextView txt_email = (TextView)findViewById(R.id.txt_menu_email);
         txt_username.setText(username);
         try {
-            txt_email.setText(Connection_helper.prendiRisultati("SELECT email FROM `utente` where username like \""+username+"\" "));
+            txt_email.setText(Connection_helper.prendiMail(username));
         } catch (IOException e) {
             txt_email.setText("Errore interno");
         }

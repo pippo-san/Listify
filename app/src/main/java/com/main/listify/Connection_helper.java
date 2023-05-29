@@ -8,6 +8,7 @@ import java.io.IOException;
 //import static com.main.listify.Utils.leggiPaginaHTML;
 
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -90,6 +91,26 @@ public class Connection_helper  {
         // return result;
     }
 
+    public static void visibilita(TextView textView, String s){
+        if(s!=""){
+            textView.setText(s);
+        }else{
+            textView.setVisibility(TextView.INVISIBLE);
+        }
+    }
+
+    public static String prendiMail(String username) throws IOException {
+        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/prendiMail.php?username="+username);
+
+        System.out.println("URL: "+url);
+
+        HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
+        String result = leggiPaginaHTML(url);
+
+        System.out.println("mail letta: " + result);
+       return result;
+    }
+
     public static String leggiPaginaHTML(URL pagina) throws IOException {
         //BufferedReader in = new BufferedReader(new InputStreamReader(pagina.getInputStream()));
         String letto = "";
@@ -107,13 +128,4 @@ public class Connection_helper  {
         return letto;
 
     }
-
-    public static void visibilita(TextView textView, String s){
-        if(s!=""){
-            textView.setText(s);
-        }else{
-            textView.setVisibility(TextView.INVISIBLE);
-        }
-    }
-
 }
