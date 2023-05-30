@@ -108,9 +108,10 @@ public class Connection_helper  {
         // return result;
     }
 
-    public static void visibilita(TextView textView, String s){
-        if(s!=""){
-            textView.setText(s);
+    public static void visibilita(TextView textView, String nomeElenco){
+        // Se leggo un elenco allora scrivo il testo, sennò rendo invisibile l'oggetto
+        if(!nomeElenco.equals("")){
+            textView.setText(nomeElenco);
         }else{
             textView.setVisibility(TextView.INVISIBLE);
         }
@@ -149,6 +150,42 @@ public class Connection_helper  {
         String result = leggiPaginaHTML(url);
 
         System.out.println("cognome: " + result);
+        return result;
+    }
+
+    public static String prendiElenco(String username) throws IOException {
+        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/prendiElenco.php?username="+username);
+
+        System.out.println("URL: "+url);
+
+        HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
+        String result = leggiPaginaHTML(url);
+
+        System.out.println("elenco letto: " + result);
+        return result;
+    }
+
+    public static String prendiLista(String username) throws IOException {
+        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/prendiLista.php?username="+username);
+
+        System.out.println("URL: "+url);
+
+        HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
+        String result = leggiPaginaHTML(url);
+
+        System.out.println("lista letto: " + result);
+        return result;
+    }
+
+    public static String prendiGruppi(String username) throws IOException {
+        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/prendiGruppi.php?username="+username);
+
+        System.out.println("URL: "+url);
+
+        HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
+        String result = leggiPaginaHTML(url);
+
+        System.out.println("nome gruppo letto: " + result);
         return result;
     }
 }

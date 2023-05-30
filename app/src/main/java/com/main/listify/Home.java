@@ -165,7 +165,7 @@ public class Home extends AppCompatActivity {
         listViewGruppi = findViewById(R.id.listaGruppi);
 
         ArrayList <String> listaGruppi = new ArrayList<>();
-        listaGruppi.add(Connection_helper.prendiRisultati("select nome from gruppo inner join famiglia on gruppo.id_gruppo=famiglia.id_gruppo where username like \""+username+"\" "));
+        listaGruppi.add(Connection_helper.prendiGruppi(username));
 
         GruppiAdapter gr = new GruppiAdapter(Home.this, listaGruppi);
         listViewGruppi.setAdapter(gr);

@@ -67,14 +67,12 @@ public class Home_elenco extends AppCompatActivity {
         txt_nome_elenco_6 = findViewById(R.id.listView_visualizza_elenchi_6);
 
         try {
-            Connection_helper.visibilita(txt_nome_elenco_1, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1"));
+            Connection_helper.visibilita(txt_nome_elenco_1, Connection_helper.prendiElenco(username));
             Connection_helper.visibilita(txt_nome_elenco_2, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 1"));
             Connection_helper.visibilita(txt_nome_elenco_3, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 2"));
             Connection_helper.visibilita(txt_nome_elenco_4, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 3"));
             Connection_helper.visibilita(txt_nome_elenco_5, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 4"));
             Connection_helper.visibilita(txt_nome_elenco_6, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 5"));
-
-
         } catch (Exception e) {
             TextView errore=findViewById(R.id.errore_home_elenco);
             errore.setVisibility(TextView.VISIBLE);

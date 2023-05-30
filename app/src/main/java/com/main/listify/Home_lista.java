@@ -69,7 +69,7 @@ public class Home_lista extends AppCompatActivity {
         txt_nome_lista_6=findViewById(R.id.listView_visualizza_liste_6);
 
         try {
-            Connection_helper.visibilita(txt_nome_lista_1, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1"));
+            Connection_helper.visibilita(txt_nome_lista_1, Connection_helper.prendiLista(username));
             Connection_helper.visibilita(txt_nome_lista_2, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 1"));
             Connection_helper.visibilita(txt_nome_lista_3, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 2"));
             Connection_helper.visibilita(txt_nome_lista_4, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 3"));
