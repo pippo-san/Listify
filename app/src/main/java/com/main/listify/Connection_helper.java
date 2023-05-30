@@ -178,25 +178,25 @@ public class Connection_helper  {
         return result;
     }
 
-    public static String prendiElenco(String username) throws IOException {
-        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/prendiElenco.php?username="+username);
+    public static ArrayList<String> prendiElenco(String username) throws IOException {
+        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/homeElenco.php?username="+username);
 
         System.out.println("URL: "+url);
 
         HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
-        String result = leggiPaginaHTML(url);
+        ArrayList <String> result = leggiPaginaHTMLArray(url);
 
         System.out.println("elenco letto: " + result);
         return result;
     }
 
-    public static String prendiLista(String username) throws IOException {
-        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/prendiLista.php?username="+username);
+    public static ArrayList<String> prendiLista(String username) throws IOException {
+        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/homeLista.php?username="+username);
 
         System.out.println("URL: "+url);
 
         HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
-        String result = leggiPaginaHTML(url);
+        ArrayList <String> result = leggiPaginaHTMLArray(url);
 
         System.out.println("lista letto: " + result);
         return result;

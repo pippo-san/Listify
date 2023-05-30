@@ -12,8 +12,15 @@ if(isset($_GET['username']) && $_GET['username']!=""){
 
     $res = query($query);
     $valori = $res->fetchAll();
-    // Stampo prima lista
-    echo $valori[0][0];
+    //// Stampo prima lista
+    //echo $valori[0][0];
+
+    echo "<pre>";
+    // Stampo nomi liste
+    foreach ($valori as $value) {
+        echo "$value[0]\n";
+    }
+    echo "</pre>";
 
 }else{
     echo "bad request";

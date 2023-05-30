@@ -138,7 +138,7 @@ public class Home extends AppCompatActivity {
         Intent activity = new Intent(this, CreazioneListaElenco.class);
         activity.putExtra("username", username);
         startActivity(activity);
-        finish();
+        this.finish();
     }
 
     public void apriHomeListe(MenuItem item) {

@@ -69,13 +69,21 @@ public class Home_lista extends AppCompatActivity {
         txt_nome_lista_6=findViewById(R.id.listView_visualizza_liste_6);
 
         try {
-            Connection_helper.visibilita(txt_nome_lista_1, Connection_helper.prendiLista(username));
-            Connection_helper.visibilita(txt_nome_lista_2, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 1"));
-            Connection_helper.visibilita(txt_nome_lista_3, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 2"));
-            Connection_helper.visibilita(txt_nome_lista_4, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 3"));
-            Connection_helper.visibilita(txt_nome_lista_5, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 4"));
-            Connection_helper.visibilita(txt_nome_lista_6, Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 5"));
+            ArrayList<String> liste = Connection_helper.prendiLista(username);
+            ArrayList<TextView> listaTextView = new ArrayList<>();
+            listaTextView.add(txt_nome_lista_1);
+            listaTextView.add(txt_nome_lista_2);
+            listaTextView.add(txt_nome_lista_3);
+            listaTextView.add(txt_nome_lista_4);
+            listaTextView.add(txt_nome_lista_5);
+            listaTextView.add(txt_nome_lista_6);
 
+            int count = 0;
+            for (String value:
+                 liste) {
+                Connection_helper.visibilita(listaTextView.get(count), value);
+                count++;
+            }
 
         } catch (Exception e) {
             TextView errore=findViewById(R.id.errore_home_lista);
@@ -89,6 +97,6 @@ public class Home_lista extends AppCompatActivity {
         activity.putExtra("username", username);
         activity.putExtra("nome_lista", Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\""));
         startActivity(activity);
-        finish();
+        this.finish();
     }
 }

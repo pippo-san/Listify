@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Home_elenco extends AppCompatActivity {
     String username;
@@ -68,12 +69,30 @@ public class Home_elenco extends AppCompatActivity {
         txt_nome_elenco_6 = findViewById(R.id.listView_visualizza_elenchi_6);
 
         try {
-            Connection_helper.visibilita(txt_nome_elenco_1, Connection_helper.prendiElenco(username));
-            Connection_helper.visibilita(txt_nome_elenco_2, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 1"));
-            Connection_helper.visibilita(txt_nome_elenco_3, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 2"));
-            Connection_helper.visibilita(txt_nome_elenco_4, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 3"));
-            Connection_helper.visibilita(txt_nome_elenco_5, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 4"));
-            Connection_helper.visibilita(txt_nome_elenco_6, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 5"));
+            ArrayList<String> liste = Connection_helper.prendiElenco(username);
+            ArrayList<TextView> listaTextView = new ArrayList<>();
+
+            listaTextView.add(txt_nome_elenco_1);
+            listaTextView.add(txt_nome_elenco_2);
+            listaTextView.add(txt_nome_elenco_3);
+            listaTextView.add(txt_nome_elenco_4);
+            listaTextView.add(txt_nome_elenco_5);
+            listaTextView.add(txt_nome_elenco_6);
+
+            int count = 0;
+            for (String value:
+                    liste) {
+                Connection_helper.visibilita(listaTextView.get(count), value);
+                count++;
+            }
+
+
+            //Connection_helper.visibilita(txt_nome_elenco_1, Connection_helper.prendiElenco(username));
+            //Connection_helper.visibilita(txt_nome_elenco_2, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 1"));
+            //Connection_helper.visibilita(txt_nome_elenco_3, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 2"));
+            //Connection_helper.visibilita(txt_nome_elenco_4, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 3"));
+            //Connection_helper.visibilita(txt_nome_elenco_5, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 4"));
+            //Connection_helper.visibilita(txt_nome_elenco_6, Connection_helper.prendiRisultati("SELECT nome_elenco from elenco INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\" limit 1 offset 5"));
         } catch (Exception e) {
             TextView errore=findViewById(R.id.errore_home_elenco);
             errore.setVisibility(TextView.VISIBLE);
@@ -82,11 +101,13 @@ public class Home_elenco extends AppCompatActivity {
     }
 
     public void apri_elenco(View view) throws IOException {
-        Intent activity = new Intent(this, VisualizzaElenco.class);
-        activity.putExtra("username", username);
-        activity.putExtra("nome_elenco", Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\""));
+        //Intent activity = new Intent(this, VisualizzaElenco.class);
+        //activity.putExtra("username", username);
+        //activity.putExtra("nome_elenco", Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\""));
+
+        Intent activity = new Intent(this, ComingSoon.class);
 
         startActivity(activity);
-        finish();
+        this.finish();
     }
 }
