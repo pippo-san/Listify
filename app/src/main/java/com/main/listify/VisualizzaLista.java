@@ -45,6 +45,7 @@ public class VisualizzaLista extends AppCompatActivity {
                 Intent activity = new Intent(this, Home.class);
                 activity.putExtra("username", username);
                 startActivity(activity);
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

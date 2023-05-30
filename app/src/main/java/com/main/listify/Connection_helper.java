@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -35,6 +36,30 @@ public class Connection_helper  {
 
 
         return letto;
+
+    }
+
+    public static ArrayList<String> leggiPaginaHTMLArray(URL pagina) throws IOException {
+        ArrayList<String> listaValori = new ArrayList<>();
+        String letto = "";
+        System.out.println("sas");
+        try {
+            Scanner in = new Scanner(pagina.openStream());
+            while(in.hasNextLine()){
+                letto = in.nextLine();
+                if (letto.contains("<pre>"))
+                    letto = letto.split("<pre>")[1];
+                if (!letto.equals("</pre>"))
+                    listaValori.add(letto);
+                System.out.println("lettooooooooooooooooooooo "+letto);
+            }
+            in.close();
+        } catch (NoSuchElementException e) {
+            // e.printStackTrace();
+        }
+
+
+        return listaValori;
 
     }
 
@@ -177,15 +202,15 @@ public class Connection_helper  {
         return result;
     }
 
-    public static String prendiGruppi(String username) throws IOException {
+    public static ArrayList<String> prendiGruppi(String username) throws IOException {
         URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/prendiGruppi.php?username="+username);
 
         System.out.println("URL: "+url);
 
         HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
-        String result = leggiPaginaHTML(url);
+        ArrayList <String> result = leggiPaginaHTMLArray(url);
 
-        System.out.println("nome gruppo letto: " + result);
+        System.out.println("nomi gruppi letti: " + result);
         return result;
     }
 }

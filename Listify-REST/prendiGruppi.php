@@ -12,11 +12,13 @@ if(isset($_GET['username']) && $_GET['username']!=""){
 
     $res = query($query);
     $valori = $res->fetchAll();
-    
+
+    echo "<pre>";
     // Stampo nomi gruppi
     foreach ($valori as $value) {
-        echo "$value[0] <br>";
+        echo "$value[0]\n";
     }
+    echo "</pre>";
 
 }else{
     echo "bad request";

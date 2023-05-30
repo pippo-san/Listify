@@ -159,13 +159,17 @@ public class Home extends AppCompatActivity {
         System.out.println(view.getId());
         TextView tw = (TextView) findViewById(view.getId());
         System.out.println(tw.getText());
+
+        Intent activity = new Intent(this, ComingSoon.class);
+        activity.putExtra("username", username);
+        startActivity(activity);
     }
 
     public void popolaTextView() throws IOException {
         listViewGruppi = findViewById(R.id.listaGruppi);
 
-        ArrayList <String> listaGruppi = new ArrayList<>();
-        listaGruppi.add(Connection_helper.prendiGruppi(username));
+        ArrayList <String> listaGruppi;
+        listaGruppi = Connection_helper.prendiGruppi(username);
 
         GruppiAdapter gr = new GruppiAdapter(Home.this, listaGruppi);
         listViewGruppi.setAdapter(gr);
