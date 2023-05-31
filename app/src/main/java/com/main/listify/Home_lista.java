@@ -70,7 +70,7 @@ public class Home_lista extends AppCompatActivity {
 
         try {
             ArrayList<String> liste = Connection_helper.prendiLista(username);
-            ArrayList<TextView> listaTextView = new ArrayList<>();
+            ArrayList<Button> listaTextView = new ArrayList<>();
             listaTextView.add(txt_nome_lista_1);
             listaTextView.add(txt_nome_lista_2);
             listaTextView.add(txt_nome_lista_3);
@@ -95,7 +95,7 @@ public class Home_lista extends AppCompatActivity {
     public void apri_lista(View view) throws IOException {
         Intent activity = new Intent(this, VisualizzaLista.class);
         activity.putExtra("username", username);
-        activity.putExtra("nome_lista", Connection_helper.prendiRisultati("SELECT nome_lista from lista INNER JOIN gruppo using (id_gruppo) inner JOIN famiglia USING (id_gruppo) where username like \""+username+"\""));
+        activity.putExtra("nome_lista", Connection_helper.prendiLista(username));
         startActivity(activity);
         this.finish();
     }

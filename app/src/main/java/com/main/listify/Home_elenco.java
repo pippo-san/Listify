@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -16,12 +17,12 @@ import java.util.ArrayList;
 public class Home_elenco extends AppCompatActivity {
     String username;
 
-    TextView txt_nome_elenco_1;
-    TextView txt_nome_elenco_2;
-    TextView txt_nome_elenco_3;
-    TextView txt_nome_elenco_4;
-    TextView txt_nome_elenco_5;
-    TextView txt_nome_elenco_6;
+    Button txt_nome_elenco_1;
+    Button txt_nome_elenco_2;
+    Button txt_nome_elenco_3;
+    Button txt_nome_elenco_4;
+    Button txt_nome_elenco_5;
+    Button txt_nome_elenco_6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +71,7 @@ public class Home_elenco extends AppCompatActivity {
 
         try {
             ArrayList<String> liste = Connection_helper.prendiElenco(username);
-            ArrayList<TextView> listaTextView = new ArrayList<>();
+            ArrayList<Button> listaTextView = new ArrayList<>();
 
             listaTextView.add(txt_nome_elenco_1);
             listaTextView.add(txt_nome_elenco_2);

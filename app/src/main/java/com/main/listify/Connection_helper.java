@@ -1,6 +1,7 @@
 package com.main.listify;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Button;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
@@ -135,10 +136,19 @@ public class Connection_helper  {
 
     public static void visibilita(TextView textView, String nomeElenco){
         // Se leggo un elenco allora scrivo il testo, sennò rendo invisibile l'oggetto
-        if(!nomeElenco.equals("")){
+        if(nomeElenco != ""){
             textView.setText(nomeElenco);
         }else{
             textView.setVisibility(TextView.INVISIBLE);
+        }
+    }
+
+    public static void visibilita(Button button, String nomeElenco){
+        // Se leggo un elenco allora scrivo il testo, sennò rendo invisibile l'oggetto
+        if(nomeElenco != ""){
+            button.setText(nomeElenco);
+        }else{
+            button.setVisibility(Button.INVISIBLE);
         }
     }
 
@@ -197,6 +207,18 @@ public class Connection_helper  {
 
         HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
         ArrayList <String> result = leggiPaginaHTMLArray(url);
+
+        System.out.println("lista letto: " + result);
+        return result;
+    }
+
+    public static String prendiLista2(String username) throws IOException {
+        URL url = new URL("http://meteo.itisarezzo.cloud/progetto_5CIA/homeLista.php?username="+username);
+
+        System.out.println("URL: "+url);
+
+        HttpURLConnection paginaAccesso = (HttpURLConnection)  url.openConnection();
+        String result = leggiPaginaHTML(url);
 
         System.out.println("lista letto: " + result);
         return result;
